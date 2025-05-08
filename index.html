@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sep-TFAnetVAD</title>
+    
+    <meta name="description" content="Project Page for Sep-TFAnetVAD">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">  
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'> -->
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+</head>
+
+<!-- 
+<head>
+  
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">    
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/audio-table.css">
+  <link rel="stylesheet" type="text/css" href="static/css/dropdown_style.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head> -->
+
+<body>
+
+  <div class="container">
+    
+    <div class="section-title text-center center">
+        <!--<h1 style="color:black"><strong><br><br> LipVoicer: Generating Speech from Silent Videos <br> Guided by Lip Reading</b><strong></h1> -->
+          <h1 style="color:black"><strong><br><br> Sep-TFAnet <sup>VAD</sup> : Single-Microphone
+            Speaker Separation and Voice Activity Detection in Noisy and Reverberant
+            Environments <br><strong></h1>
+        <br><br> 
+        <span class="eql-cntrb"> <sup>*</sup>Equal Contribution</span><br />
+        <div class="publication-authors">
+            <sup>1</sup><a href="https://orcid.org/0000-0002-2885-170X" target="_blank"><span class="institution">Sharon Gannot</span></a>, 
+            <sup>2</sup><a href="https://orcid.org/0009-0002-6190-7469" target="_blank"><span class="institution">Renana Opochinsky</span></a>,
+             <sup>3</sup><a href="https://orcid.org/0009-0000-1190-0555" target="_blank"><span class="institution">Mordehay Moradi</span></a>
+        </div>
+
+        <div class="button-container">
+            <a href="https://github.com/MordehayM/Sep-TFAnet-VAD" class="link-wrap" target="_blank"> <!-- GitHub Link -->
+            <button class="special-button">
+                <i class="fab fa-github"></i>
+                GitHub
+            </button>
+        </a>
+        <a href="https://ieee-dataport.org/documents/arimulti-mic-real-world-speech-recordings-humanoid-robot-ari" class="link-wrap" target="_blank"> <!-- GitHub Link -->
+            <button class="special-button">
+                <i class="fas fa-database"></i>
+                ARIMULTI-MIC DataSet
+            </button>
+        </a>
+        </div>
+
+
+
+        
+    </div>
+    <div class="column-center"> 
+        <img style="border:0px solid black;" src="img/network_arc.png" alt="method" class="enlarge-above-other">
+        <br><br>
+    </div> 
+    <div class="row">
+      
+          <div class="col-md-10 col-md-offset-1">
+
+                <p style="color:black; font-family:Sans-Serif; font-size:16px">  
+                    Speech separation involves extracting an individual speaker's voice from a multi-speaker audio signal.
+                    The increasing complexity of real-world environments, where multiple speakers might converse simultaneously,
+                    underscores the importance of effective speech separation techniques.
+                    This work presents a single-microphone speaker separation network with TF attention aiming at noisy and reverberant
+                    environments.
+                    We dub this new architecture as Sep-TFAnet. In addition, we present a variant of the separation network, 
+                    dubbed Sep-TFAnet<sup>VAD</sup> VAD, which incorporates a VAD into the separation network.
+                    The separation module is based on a TCN backbone inspired by the Conv-Tasnet architecture with multiple modifications. 
+                    Rather than a learned encoder and decoder, we use  STFT and iSTFT for the analysis and synthesis, respectively.
+                    Our system is specially developed for human-robotic interactions and should support online mode. 
+                    The separation capabilities of Sep-TFAnet<sup>VAD</sup> and Sep-TFAnet were evaluated and extensively
+                    analyzed under several acoustic conditions, demonstrating their advantages over competing methods. 
+                    Since separation networks trained on simulated data tend to perform poorly on real recordings,
+                    we also demonstrate the ability of the proposed scheme to better generalize to realistic examples recorded in our acoustic lab by a humanoid robot.
+                </p> <br><hr><br>
+      
+          </div>
+    </div>
+
+  </div>
+<!-- </div> -->
+
+  
+
+    
+
+    
+      <!-- <p style="color:black; font-family:Sans-Serif; font-size:24px;"> Sampless from our robot dataset </p> -->
+        <br><br> 
+        <div class="table-container">
+        <table border="1" class="right-caption">
+            <!-- <caption style="color:black; font-family:Sans-Serif; font-size:24px;">Samples from our robot dataset <br> Legend: <span>Read words: bla <br>Asterik: bla</span></caption> -->
+            
+                <!-- Your content goes here -->
+            
+            <caption>
+                <div class="title-caption">Samples from our robot dataset</div>
+                <div class="legend">
+                    <u>Legend:</u>
+                    <div class="item"><span class="highlight">Red Words</span> - Wrong words</div>
+                    <div class="item">Asterisk (*) - Missing words</div>
+                </div>
+            </caption>
+        
+            <thead>
+                <tr>
+                    <th style="color:black; font-weight: bold; font-size: 20px;">Mix</th>
+                    <th style="color:black; font-weight: bold; font-size: 20px;">Clean</th>
+                    <th style="color:black; font-weight: bold; font-size: 20px;">Sep-TFAnet<sup>VAD</sup> Output</th>
+                    <th style="color:black; font-weight: bold; font-size: 20px;">Conv-Tasnet Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- We'll create 10 similar rows -->
+                <!-- row 1 -->
+                <tr>
+                    <!-- mix column -->
+                    <td>
+                        
+                            <!-- <div class="media-title"><u>Spk1:</u></div>
+                            <div class="media-content">
+                                <audio controls>
+                                    <source src="partial_audio_samples_robot_rt60_350_our/sample101/Mixed.wav" type="audio/wav">
+                                </audio>
+                                <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_mixed.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                                
+                            </div> -->
+                        
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;">overlap ratio = 36%:</span>
+                        <br>
+                        <audio controls>
+                            <source src="partial_audio_samples_robot_rt60_350_our/sample101/Mixed.wav" type="audio/wav">
+                        </audio>
+                       
+
+                        <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_mixed.png"
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                        <p class="plain-text">1st as a paris stt broker later as a celebrated author and yachtsman he went on frequent voyages
+                             construction and were installed by the construction company.
+                              that had been organized by edison to build and equipped central stations. </p>
+                        
+                    </td>
+                    <!-- clean column -->
+                    <td>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                        <br>
+
+                        <audio controls>
+                            <source src="partial_audio_samples_robot_rt60_350_our/sample101/Target1.wav" type="audio/wav">
+                        </audio>
+
+                        <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_clean0.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                        <p class="plain-text"> 1st as a paris stock broker later as a celebrated author and yachtsman he went on frequent voyages to britain america the mediterranean</p>
+                        <br>
+                        <!-- <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span> -->
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                        <br>
+                        <audio controls>
+                            <source src="partial_audio_samples_robot_rt60_350_our/sample101/Target2.wav" type="audio/wav">
+                        </audio>
+                        <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_clean1.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                        <p class="plain-text">the street conductors were of the overhead pole line construction and were installed by the construction company
+                             that had been organized by edison to build and equipped central stations</p>
+                        
+                    </td>
+                    <!-- sep our column -->
+                    <td>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                        <br>
+
+                        <audio controls>
+                            <source src="partial_audio_samples_robot_rt60_350_our/sample101/Speaker1.wav" type="audio/wav">
+                        </audio>
+
+                        <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_out0.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                        <p class="plain-text">1st as a paris stock broker later as <span class="highlight">A</span> celebrated author and yachtsman he went on
+                            frequent voyages to britain america the mediterranean</p>
+
+                        <br>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                        <br>
+                        <audio controls>
+                            <source src="partial_audio_samples_robot_rt60_350_our/sample101/Speaker2.wav" type="audio/wav">
+                        </audio>
+                        <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_out1.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                        <p class="plain-text">the street conductors were ** the overhead **** line construction and were installed by the construction company that had been organized by edison to b
+                            uild and equipped central stations</p>
+                    </td>
+                         <!-- sep conv column -->
+                    <td>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                        <br>
+
+                        <audio controls>
+                            <source src="partial_audio_samples_robot_rt60_350_convtasnet/sample101/Speaker1.wav" type="audio/wav">
+                        </audio>
+
+                        <img src="partial_audio_samples_robot_rt60_350_convtasnet/sample101/tasnet_out0.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                        
+                        <p class="plain-text">1st as a paris stock broker later as a celebrated author and yachtsman he went on
+                             frequent voyages to britain america the mediterranean <span class="highlight">ITS ALL ABOUT IT</span></p>
+
+                        <br>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                        <br>
+                        <audio controls>
+                            <source src="partial_audio_samples_robot_rt60_350_convtasnet/sample101/Speaker2.wav" type="audio/wav">
+                        </audio>
+                        <img src="partial_audio_samples_robot_rt60_350_convtasnet/sample101/tasnet_out1.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                        <p class="plain-text">the <span class="highlight">AS A HE WENT ON</span> street conductors **** <span class="highlight">OR</span>
+                            the <span class="highlight">OVERHANG THING</span>  line construction *** were ins
+                            talled by the construction company that had been organized by edison to build and equipped central stations</p>
+                    </td>
+                    <!-- row 2 -->
+                </tr>
+                <!-- mix column -->
+                <td>
+                    <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;">overlap ratio = 45%:</span>
+                    <!-- <span class="spaced-span">overlap ratio = 45%:</span> -->
+                <br>
+                <audio controls>
+                    <source src="partial_audio_samples_robot_rt60_350_our/sample8/Mixed.wav" type="audio/wav">
+                </audio>
+
+                <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_mixed.png"
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200">
+                <p class="plain-text">it he has no traditions to bind him or guide him and his impulse to break away from the occupation Himself
+                    but he gives us different sorts of Work according as he fits us for it and calls us to it </p>
+            </td>
+            <!-- clean column -->
+            <td>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                <br>
+
+                <audio controls>
+                    <source src="partial_audio_samples_robot_rt60_350_our/sample8/Target1.wav" type="audio/wav">
+                </audio>
+
+                <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_clean0.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200">
+                <p class="plain-text">he has no traditions to bind him or guide him and his impulse is to
+                     break away from the occupation his father has followed and make a new way for himself.</p>
+                <br>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                <br>
+                <audio controls>
+                    <source src="partial_audio_samples_robot_rt60_350_our/sample8/Target2.wav" type="audio/wav">
+                </audio>
+                <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_clean1.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200">
+                <p class="plain-text">we can all be servants of god wherever our lot is cast but he gives us
+                     different sorts of work according as he fits us for it and calls us to it.</p>
+            </td>
+            <!-- sep our column -->
+            <td>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                <br>
+
+                <audio controls>
+                    <source src="partial_audio_samples_robot_rt60_350_our/sample8/Speaker1.wav" type="audio/wav">
+                </audio>
+
+                <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_out0.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200">
+                <p class="plain-text">he has no traditions to bind him or guide him and his impulse <span class="highlight">IS</span> to break away from the occupation his father has followed and make
+                    a new way for himself</p>
+                <br>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                <br>
+                <audio controls>
+                    <source src="partial_audio_samples_robot_rt60_350_our/sample8/Speaker2.wav" type="audio/wav">
+                </audio>
+                <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_out1.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200">
+                <p class="plain-text">we can <span class="highlight">ONLY</span> be servants of god wherever our <span class="highlight">LIFE is TEST</span> but he gives us different
+                     sorts of work <span class="highlight">RECORDING</span> as 
+                    he fits us for it and calls us to it</p>
+            </td>
+                 <!-- sep conv column -->
+            <td>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                <br>
+
+                <audio controls>
+                    <source src="partial_audio_samples_robot_rt60_350_convtasnet/sample8/Speaker1.wav" type="audio/wav">
+                </audio>
+
+                <img src="partial_audio_samples_robot_rt60_350_convtasnet/sample8/tasnet_out0.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200">
+                <p class="plain-text">he has no traditions to bind him or guide him and his impulse to break away from the occupation his father has followed and **** 
+                    * *** *** for himself</p>
+                <br>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                <br>
+                <audio controls>
+                    <source src="partial_audio_samples_robot_rt60_350_convtasnet/sample8/Speaker2.wav" type="audio/wav">
+                </audio>
+                <img src="partial_audio_samples_robot_rt60_350_convtasnet/sample8/tasnet_out1.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200">
+                <p class="plain-text"><span class="highlight">HE HAS NO AND THIS IS</span> we can all <span class="highlight">THE</span> servants of god wherever *** *** *
+                    * **** but he gives us different sorts of work <span class="highlight">RECORDING</span> as he fits us for it and calls us to it</p>
+            </td>
+
+                <!-- row 3 -->
+            </tr>
+            <!-- mix column -->
+            <td>
+                
+                <!-- <span class="spaced-span">overlap ratio = 32%:</span> -->
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;">overlap ratio = 32%:</span>
+            <br>
+            <audio controls>
+                <source src="partial_audio_samples_robot_rt60_350_our/sample14/Mixed.wav" type="audio/wav">
+            </audio>
+
+            <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_mixed.png"
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200">
+            <p class="plain-text">It is a gleaner Bringing down her one sheaf of corn to an Old Water Mill itself Mossy in rent Scarcely able to get its
+                 stones to and think i showed him by my mode of address that i did not bear any grudge as to my individual self </p>
+        </td>
+        <!-- clean column -->
+        <td>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+            <br>
+
+            <audio controls>
+                <source src="partial_audio_samples_robot_rt60_350_our/sample14/Target1.wav" type="audio/wav">
+            </audio>
+
+            <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_clean0.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200">
+            <p class="plain-text">it is a gleaner bringing down her one sheaf of corn to an old watermill itself mossy and rent scarcely able to get its stones to turn</p>
+            <br>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+            <br>
+            <audio controls>
+                <source src="partial_audio_samples_robot_rt60_350_our/sample14/Target2.wav" type="audio/wav">
+            </audio>
+            <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_clean1.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200">
+            <p class="plain-text">as i spoke i made him a gracious bow and i think i showed him by my mode of address that i did not bear any grudge as to my individual self.</p>
+        </td>
+        <!-- sep our column -->
+        <td>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+            <br>
+
+            <audio controls>
+                <source src="partial_audio_samples_robot_rt60_350_our/sample14/Speaker1.wav" type="audio/wav">
+            </audio>
+
+            <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_out0.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200">
+            <p class="plain-text"> it is a gleaner bringing down her one sheaf of corn to an old water mill itself mossy
+                 in rent scarcely able to get its stones to <span class="highlight">TIME
+                    ANY GRUDGE</span></p> 
+            <br>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+            <br>
+            <audio controls>
+                <source src="partial_audio_samples_robot_rt60_350_our/sample14/Speaker2.wav" type="audio/wav">
+            </audio>
+            <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_out1.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200">
+            <p class="plain-text"><span class="highlight">RIGHT</span> as <span class="highlight">YOU</span> spoke I made him a gracious bow and I think i showed him by my mode of address that i did not bea
+                r any <span class="highlight">PLEDGE</span> as to my individual self</p>
+        </td>
+             <!-- sep conv column -->
+        <td>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+            <br>
+
+            <audio controls>
+                <source src="partial_audio_samples_robot_rt60_350_convtasnet/sample14/Speaker1.wav" type="audio/wav">
+            </audio>
+
+            <img src="partial_audio_samples_robot_rt60_350_convtasnet/sample14/tasnet_out0.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200">
+            <p class="plain-text">it is a gleaner bringing down her one sheaf of corn to an old water mill 
+                <span class="highlight">IT OFF </span>   mossy <span class="highlight">AND</span> rent scarcely able to get
+                 its <span class="highlight">STONE I THINK I SHOWED HIM BY MY MOTIVE AS</span>     to <span class="highlight">MY</span></p>
+            <br>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+            <br>
+            <audio controls>
+                <source src="partial_audio_samples_robot_rt60_350_convtasnet/sample14/Speaker2.wav" type="audio/wav">
+            </audio>
+            <img src="partial_audio_samples_robot_rt60_350_convtasnet/sample14/tasnet_out1.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200">
+            <p class="plain-text"><span class="highlight">ITS SO I</span>     made him a gracious bow and ***** * ****** *** ** ** ****
+                of address that i did not bear any grudge as to my individual self</p>
+        </td>
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- another table of LibriCSS -->
+
+            <br><br> 
+        <div class="table-container">
+        <table border="1" class="right-caption">
+            <!-- <caption style="color:black; font-family:Sans-Serif; font-size:24px;">Samples from our robot dataset <br> Legend: <span>Read words: bla <br>Asterik: bla</span></caption> -->
+            
+                <!-- Your content goes here -->
+            
+            <caption>
+                <div class="title-caption">Samples from LibriCSS dataset</div>
+                <div class="legend">
+                    <u>Legend:</u>
+                    <div class="item"><span class="highlight">Red Words</span> - Wrong words</div>
+                    <div class="item">Asterisk (*) - Missing words</div>
+                </div>
+            </caption>
+        
+            <thead>
+                <tr>
+                    <th style="color:black; font-weight: bold; font-size: 20px;">Mix</th>
+                    <th style="color:black; font-weight: bold; font-size: 20px;">Clean</th>
+                    <th style="color:black; font-weight: bold; font-size: 20px;">Sep-TFAnet Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- We'll create 10 similar rows -->
+                <!-- row 1 -->
+                <tr>
+                    <!-- mix column -->
+                    <td>
+                        
+                            <!-- <div class="media-title"><u>Spk1:</u></div>
+                            <div class="media-content">
+                                <audio controls>
+                                    <source src="partial_audio_samples_robot_rt60_350_our/sample101/Mixed.wav" type="audio/wav">
+                                </audio>
+                                <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_mixed.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200">
+                                
+                            </div> -->
+                        
+                        <!-- <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;">overlap ratio = 36%:</span> -->
+                        <br>
+                        <audio controls>
+                            <source src="libricss_results\sample0\Mixed.wav" type="audio/wav">
+                        </audio>
+                       
+
+                        <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_mixed.png"
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200"> -->
+                        <p class="plain-text">we sometimes have images that are by no means peculiarly vague which yet we do not
+                             trust e g under the influence of fatigue we may see a friend's face vividly and clearly horribly
+                              distorted cried the tree rejoicing. </p>
+                        
+                    </td>
+                    <!-- clean column -->
+                    <td>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                        <br>
+
+                        <audio controls>
+                            <source src="libricss_results\sample0\fourth_channel_segment_06.wav" type="audio/wav">
+                        </audio>
+
+                        <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_clean0.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200"> -->
+                        <p class="plain-text"> we sometimes have images that are by no means peculiarly vague which yet we do not
+                             trust for example under the influence of fatigue we may see a friend's face vividly and clearly but horribly distorted</p>
+                        <br>
+                        <!-- <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span> -->
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                        <br>
+                        <audio controls>
+                            <source src="libricss_results\sample0\third_channel_segment_06.wav" type="audio/wav">
+                        </audio>
+                        <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_clean1.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200"> -->
+                        <p class="plain-text">i would fain know if i am destined for so glorious a career cried the tree rejoicing</p>
+                        
+                    </td>
+                    <!-- sep our column -->
+                    <td>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                        <br>
+
+                        <audio controls>
+                            <source src="libricss_results\sample0\Speaker_0.wav" type="audio/wav">
+                        </audio>
+
+                        <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_out0.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200"> -->
+                        <p class="plain-text"> we sometimes have images that *** by no means peculiarly vague which yet we do not trust
+                            for example under the influence of fatigue we may see a friend's face vividly and clearly but horribly distorted  </p>
+
+                        <br>
+                        <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                        <br>
+                        <audio controls>
+                            <source src="libricss_results\sample0\Speaker_1.wav" type="audio/wav">
+                        </audio>
+                        <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample101/our_out1.png" 
+                        alt="Description for Image 2" 
+                        style="display: block; margin: 10px auto;" height="200"> -->
+                        <p class="plain-text"> i would **** <span class="highlight">THINK</span> if i am destined for <span class="highlight">SOME</span> glorious a career cried the tree rejoicing</p>
+                    </td>
+                         <!-- sep conv column -->
+                    
+                    <!-- row 2 -->
+                </tr>
+                    <!-- mix column -->
+                    <td>
+                        <!-- <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;">overlap ratio = 45%:</span> -->
+                        <!-- <span class="spaced-span">overlap ratio = 45%:</span> -->
+                    <br>
+                    <audio controls>
+                        <source src="libricss_results\sample1\Mixed.wav" type="audio/wav">
+                    </audio>
+
+                    <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_mixed.png"
+                    alt="Description for Image 2" 
+                    style="display: block; margin: 10px auto;" height="200"> -->
+                    <p class="plain-text">doubts now arose and some discussion followed tone so noble in its spirit </p>
+                </td>
+                <!-- clean column -->
+                <td>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                <br>
+
+                <audio controls>
+                    <source src="libricss_results\sample1\eighth_channel_segment_03.wav" type="audio/wav">
+                </audio>
+
+                <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_clean0.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200"> -->
+                <p class="plain-text">doubts now arose and some discussion followed whether or not it was desirable for ben zoof to accompany his master.</p>
+                <br>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                <br>
+                <audio controls>
+                    <source src="libricss_results\sample1\third_channel_segment_03.wav" type="audio/wav">
+                </audio>
+                <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_clean1.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200"> -->
+                <p class="plain-text">i had not ventured to hope for such a reply so considerate in its tone so noble in its spirit.</p>
+                </td>
+                <!-- sep our column -->
+                <td>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+                <br>
+
+                <audio controls>
+                    <source src="libricss_results\sample1\Speaker_0.wav" type="audio/wav">
+                </audio>
+
+                <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_out0.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200"> -->
+                <p class="plain-text">doubts now arose and some discussion followed whether or not it was desirable for <span class="highlight">BE  ZOO</span>   to accompany his master</p>
+                <br>
+                <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+                <br>
+                <audio controls>
+                    <source src="libricss_results\sample1\Speaker_1.wav" type="audio/wav">
+                </audio>
+                <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample8/our_out1.png" 
+                alt="Description for Image 2" 
+                style="display: block; margin: 10px auto;" height="200"> -->
+                <p class="plain-text">i <span class="highlight">HAVE</span>  not ventured to hope for such a reply so considerate in its tone so noble in its spirit</p>
+            </td>
+                 <!-- sep conv column -->
+            
+
+             <!-- row 3 -->
+            </tr>
+            <!-- mix column -->
+            <td>
+                
+                <!-- <span class="spaced-span">overlap ratio = 32%:</span> -->
+                <!-- <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;">overlap ratio = 32%:</span> -->
+            <br>
+            <audio controls>
+                <source src="libricss_results\sample2\Mixed.wav" type="audio/wav">
+            </audio>
+
+            <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_mixed.png"
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200"> -->
+            <p class="plain-text">cried alice again for this time the mouse was bristling
+                 all over and she felt trap in the far corner of the hut and stuteley had
+                  tripped over the edge of the reversed flap mouth of this pit </p>
+        </td>
+        <!-- clean column -->
+        <td>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+            <br>
+
+            <audio controls>
+                <source src="libricss_results\sample2\first_channel_segment_08.wav" type="audio/wav">
+            </audio>
+
+            <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_clean0.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200"> -->
+            <p class="plain-text">they were upon the verge of an open trap in the far corner
+                 of the hut and stuteley had tripped over the edge of the reversed flap mouth of this pit</p>
+            <br>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+            <br>
+            <audio controls>
+                <source src="libricss_results\sample2\fourth_channel_segment_08.wav" type="audio/wav">
+            </audio>
+            <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_clean1.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200"> -->
+            <p class="plain-text">cried alice again for this time the mouse was bristling all over and she felt certain it must be really offended.</p>
+        </td>
+        <!-- sep our column -->
+        <td>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 1:</u></span>
+            <br>
+
+            <audio controls>
+                <source src="libricss_results\sample2\Speaker_0.wav" type="audio/wav">
+            </audio>
+
+            <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_out0.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200"> -->
+            <p class="plain-text"> <span class="highlight">OVER</span> they were upon the verge of an open trap in the
+                 far corner of the hut and stuteley had tripped over the edge of the reversed flap mouth of this pit</p> 
+            <br>
+            <span class="spaced-span" style="color:black; font-weight: bold; font-size: 17px;" ><u>speaker 2:</u></span>
+            <br>
+            <audio controls>
+                <source src="libricss_results/sample2/Speaker_1.wav" type="audio/wav">
+            </audio>
+            <!-- <img src="partial_audio_samples_robot_rt60_350_our/sample14/our_out1.png" 
+            alt="Description for Image 2" 
+            style="display: block; margin: 10px auto;" height="200"> -->
+            <p class="plain-text">cried alice again for this time the mouse was bristling all
+                 over and she felt certain <span class="highlight">THAT</span> it must be really <span class="highlight">OFFENSIVE</span></p>
+        </td>
+        
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+  	
+
+</div>
+
+
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
