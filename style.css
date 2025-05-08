@@ -1,0 +1,117 @@
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 2rem 1rem;
+    background: #fff;
+    color: #222;
+    line-height: 1.4;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.abstract {
+    flex: 1 1 60%;
+}
+
+.figures {
+    flex: 1 1 35%;
+}
+
+.figures img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0 0 1.5rem;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    color: #555;
+    /* text-align: left; */
+}
+
+/* Demo cards grid */
+.demo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.demo-card {
+    flex: 1 1 260px;
+    max-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.8rem;
+    background: #f9f9f9;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    font-size: 0.95rem;
+}
+
+/* Compact audio grid */
+.audio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.play-btn {
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    border: 1px solid #aaa;
+    background: #eee;
+    border-radius: 3px;
+}
+
+.play-btn:hover {
+    background: #ddd;
+}
+
+/* Hide native controls */
+audio {
+    height: 15px;
+    width: 180px;
+}
+
+.spec-row {
+    display: flex;
+    margin-bottom: 1rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.spec-images {
+    display: flex;
+    gap: 1rem;
+}
+
+.spec-images img {
+    height: 200px;
+    width: auto;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
