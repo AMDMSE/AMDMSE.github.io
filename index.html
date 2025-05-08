@@ -92,20 +92,14 @@
           <div class="col-md-10 col-md-offset-1">
 
                 <p style="color:black; font-family:Sans-Serif; font-size:16px">  
-                    Speech separation involves extracting an individual speaker's voice from a multi-speaker audio signal.
-                    The increasing complexity of real-world environments, where multiple speakers might converse simultaneously,
-                    underscores the importance of effective speech separation techniques.
-                    This work presents a single-microphone speaker separation network with TF attention aiming at noisy and reverberant
-                    environments.
-                    We dub this new architecture as Sep-TFAnet. In addition, we present a variant of the separation network, 
-                    dubbed Sep-TFAnet<sup>VAD</sup> VAD, which incorporates a VAD into the separation network.
-                    The separation module is based on a TCN backbone inspired by the Conv-Tasnet architecture with multiple modifications. 
-                    Rather than a learned encoder and decoder, we use  STFT and iSTFT for the analysis and synthesis, respectively.
-                    Our system is specially developed for human-robotic interactions and should support online mode. 
-                    The separation capabilities of Sep-TFAnet<sup>VAD</sup> and Sep-TFAnet were evaluated and extensively
-                    analyzed under several acoustic conditions, demonstrating their advantages over competing methods. 
-                    Since separation networks trained on simulated data tend to perform poorly on real recordings,
-                    we also demonstrate the ability of the proposed scheme to better generalize to realistic examples recorded in our acoustic lab by a humanoid robot.
+                    Diffusion models have achieved impressive results in reconstructing images from noisy inputs. By treating speech signals in the time–frequency domain as images, 
+                    we can apply similar techniques to speech enhancement. Given the ubiquity of devices equipped with multiple microphones, such as smartphones, laptops, and voice 
+                    assistants, we extend a state-of-the-art diffusion-based method to leverage multichannel inputs for further performance gains.
+                    We introduce AMDM-SE, an Attention-based Multichannel Diffusion Model for Speech Enhancement, specifically for noise reduction. AMDM-SE harnesses spatial inter-channel
+                    information via a cross-channel time–frequency attention block, enabling the network to faithfully reconstruct fine-grained signal details within a generative diffusion framework. 
+                    On the CHiME-3 benchmark, AMDM-SE surpasses both the single-channel diffusion baseline and the multichannel model without the attention mechanism,
+                    as well as a DNN-based predictive method. Simulated-data experiments further highlight the critical role of our multichannel processing stage.
+                    Overall, our results demonstrate that incorporating targeted multichannel attention within diffusion models markedly improves noise reduction performance.
                 </p> <br><hr><br>
       
           </div>
